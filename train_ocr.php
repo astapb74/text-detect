@@ -1,3 +1,8 @@
+<html>
+<head>
+	<title>Test OCR</title>
+</head>	
+<body>
 <?php
 set_time_limit ( 300 ); // do not run longer than 5 minutes (adjust as needed)
 
@@ -25,3 +30,5 @@ if ($ocr_ann) {
 
 echo 'All Done! Now run <a href="/">Test OCR</a><br>' . PHP_EOL;
 ?>
+</body>
+</html>

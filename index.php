@@ -1,10 +1,15 @@
-<style>
-    .blue{color:blue;}
-    .green{color:green;}
-    .red{color:red;}
-</style>
-
-<h1 class='blue'>OCR Test:</h1>
+<?php $title = 'OCR Test:' ?>
+<html>
+    <head>
+    <title><?= $title ?></title>    
+    <style>
+        .blue{color:blue;}
+        .green{color:green;}
+        .red{color:red;}
+    </style>
+    </head>
+    <body>
+        <h1 class='blue'><?= $title ?></h1>
 <?php
 
 function OCR($img, $expected, $input, $lookup_array, $ann) {
@@ -121,3 +126,5 @@ if ($ocr_ann) {
 }
 
 ?>
+    </body>
+</html>
