@@ -53,40 +53,22 @@ if ($ocr_ann) {
     }
 
     $im = imagecreatefrompng("fann.png");
+    $width = getimagesize("fann.png")[0];
 
-    $test_F = [];
-    for ($y = 0; $y<16; $y++) {
-        for ($x = 0; $x<10; $x++) {
-            $test_F[] = imagecolorat($im, $x, $y) ? 1 : 0;
+    $alphavit = ['F', 'A', 'N', 'N'];
+    $codes = [37, 32, 45, 45];
+    
+    foreach ($alphavit as $key => $value) {
+        $testChar = [];
+        for ($y = 0; $y<16; $y++) {
+            for ($x = $key*10; $x<$key*10+10; $x++) {
+                $testChar[] = imagecolorat($im, $x, $y) ? 1 : 0;
+            }
         }
+        
+        OCR($codes[$key], $value, $testChar, $result_lookup_array, $ocr_ann);
     }
-    OCR('37', 'F', $test_F, $result_lookup_array, $ocr_ann);
 
-    $test_A = [];
-    for ($y = 0; $y<16; $y++) {
-        for ($x = 10; $x<20; $x++) {
-            $test_A[] = imagecolorat($im, $x, $y) ? 1 : 0;
-        }
-    }
-     OCR('32', 'A', $test_A, $result_lookup_array, $ocr_ann);
-    
-    $test_N = [];
-    for ($y = 0; $y<16; $y++) {
-        for ($x = 20; $x<30; $x++) {
-            $test_N[] = imagecolorat($im, $x, $y) ? 1 : 0;
-        }
-    }
-    OCR('45', 'N', $test_N, $result_lookup_array, $ocr_ann);
-    
-   
-    $test_N = [];
-    for ($y = 0; $y<16; $y++) {
-        for ($x = 30; $x<40; $x++) {
-            $test_N[] = imagecolorat($im, $x, $y) ? 1 : 0;
-        }
-    }
-    OCR('45', 'N', $test_N, $result_lookup_array, $ocr_ann);
-    
     fann_destroy($ocr_ann);
 } else {
     die("<span class='red'>Invalid file format.</span>" . PHP_EOL);
