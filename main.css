@@ -9,6 +9,10 @@
     margin-bottom: 2em;
  }
 
+ ul li a img {
+ 	border: 5px solid gray;
+ }
+
 .main {
 	clear: both;
 }
