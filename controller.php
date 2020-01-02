@@ -25,7 +25,7 @@ function OCR($img, $expected, $input, $lookup_array, $ann) {
                 echo '<span class="green">Correct!</span>';
             }else{
                 $res = false;
-                echo '<span class="red">Incorrect!</span> <a href="train_ocr.php">Retrain OCR</a>';
+                echo '<span class="red">Incorrect!</span> <a href="/train_ocr">Retrain OCR</a>';
             }
         }
     }

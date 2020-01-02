@@ -26,9 +26,9 @@ if ($ocr_ann) {
     fann_set_activation_function_hidden($ocr_ann, FANN_SIGMOID_SYMMETRIC);
     fann_set_activation_function_output($ocr_ann, FANN_SIGMOID_SYMMETRIC);
 
-    $filename = dirname(__FILE__) . "/ocr.data";
+    $filename = dirname(__FILE__) . "/../ocr.data";
     if (fann_train_on_file($ocr_ann, $filename, $max_epochs, $epochs_between_reports, $desired_error))
-        fann_save($ocr_ann, dirname(__FILE__) . "/ocr_float.net");
+        fann_save($ocr_ann, dirname(__FILE__) . "/../ocr_float.net");
 
     fann_destroy($ocr_ann);
 }
