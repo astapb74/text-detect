@@ -6,6 +6,10 @@
         .blue{color:blue;}
         .green{color:green;}
         .red{color:red;}
+        .block_chart{
+            float: left;
+            margin-right: 10px;
+        }
     </style>
     </head>
     <body>
@@ -13,6 +17,7 @@
 <?php
 
 function OCR($img, $expected, $input, $lookup_array, $ann) {
+    echo '<div class="block_chart">' . PHP_EOL;
     echo "Image: <img src='images.php?code=$img'><br>" . PHP_EOL;
 
     $calc_out = fann_run($ann, $input);
@@ -34,7 +39,7 @@ function OCR($img, $expected, $input, $lookup_array, $ann) {
         }
     }
     echo '<br><br>' . PHP_EOL;
-    
+    echo '</div>' . PHP_EOL;
 }
 
 
