@@ -1,5 +1,13 @@
 <?php
 
+require_once "./db.php";
+
+define('DB_STRING', 'sqlite:text.db');
+define('DB_USER', NULL);
+define('DB_PASS', NULL);
+
+$db = new \Common\Repository;
+
 /**
 * Функция распознования текста
 *
@@ -52,24 +60,31 @@ if ($ocr_ann) {
 
     // Картинка которую распознать
     $im = imagecreatefrompng("fann.png");
-
-    $alphavit = ['F', 'A', 'N', 'N'];
-    $codes = [37, 32, 45, 45];
+    $width = getimagesize("fann.png")[0];
+    $countChars = $width / 10;
     
     $stringRes = '';
-    foreach ($alphavit as $key => $value) {
-        $testChar = [];
-        //Режим картинку на символы
+    $testChar = [];
+    //Режим картинку на символы
+    for ($key = 0; $key<$countChars;$key++) {
         for ($y = 0; $y<16; $y++) {
             for ($x = $key*10; $x<$key*10+10; $x++) {
-                $testChar[] = imagecolorat($im, $x, $y) ? 1 : 0;
+                $testChar[$key][] = imagecolorat($im, $x, $y) ? 1 : 0;
             }
         }
+                
+    }
+
+    $alphavit = $db->getMany("SELECT * FROM alphavit WHERE code != 0;");
+
+// Распознаем текс
+    foreach ($testChar as $index => $char) {
+        foreach ($alphavit as $key => $value) {
+            $res = OCR($value['code'], $value['title'], $char, $result_lookup_array, $ocr_ann);
+            if ($res)
+                $stringRes .= $res; // Распознаный текст
+        }
         
-        // Распознаем текс
-        $res = OCR($codes[$key], $value, $testChar, $result_lookup_array, $ocr_ann);
-        if ($res)
-            $stringRes .= $res; // Распознаный текст
     }
 
 
