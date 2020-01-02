@@ -1,6 +1,11 @@
 <html>
 <head>
 	<title>Test OCR</title>
+	<script type="text/javascript">
+		setTimeout(function() {
+			location.href = '/';	
+		}, 500);
+	</script>
 </head>	
 <body>
 <?php
