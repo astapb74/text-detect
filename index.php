@@ -60,6 +60,7 @@ if ($ocr_ann) {
             $test_F[] = imagecolorat($im, $x, $y) ? 1 : 0;
         }
     }
+    OCR('37', 'F', $test_F, $result_lookup_array, $ocr_ann);
 
     $test_A = [];
     for ($y = 0; $y<16; $y++) {
@@ -67,6 +68,7 @@ if ($ocr_ann) {
             $test_A[] = imagecolorat($im, $x, $y) ? 1 : 0;
         }
     }
+     OCR('32', 'A', $test_A, $result_lookup_array, $ocr_ann);
     
     $test_N = [];
     for ($y = 0; $y<16; $y++) {
@@ -74,10 +76,15 @@ if ($ocr_ann) {
             $test_N[] = imagecolorat($im, $x, $y) ? 1 : 0;
         }
     }
-
-    OCR('37', 'F', $test_F, $result_lookup_array, $ocr_ann);
-    OCR('32', 'A', $test_A, $result_lookup_array, $ocr_ann);
     OCR('45', 'N', $test_N, $result_lookup_array, $ocr_ann);
+    
+   
+    $test_N = [];
+    for ($y = 0; $y<16; $y++) {
+        for ($x = 30; $x<40; $x++) {
+            $test_N[] = imagecolorat($im, $x, $y) ? 1 : 0;
+        }
+    }
     OCR('45', 'N', $test_N, $result_lookup_array, $ocr_ann);
     
     fann_destroy($ocr_ann);
