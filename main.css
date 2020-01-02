@@ -1,0 +1,14 @@
+ ul {
+    list-style: none;
+ }
+
+.blue{color:blue;}
+
+.green{color:green;}
+
+.red{color:red;}
+
+.block_chart{
+    float: left;
+    margin-right: 10px;
+}

@@ -59,8 +59,8 @@ if ($ocr_ann) {
     }
 
     // Картинка которую распознать
-    $im = imagecreatefrompng("fann.png");
-    $width = getimagesize("fann.png")[0];
+    $im = imagecreatefrompng($_GET['filename']);
+    $width = getimagesize($_GET['filename'])[0];
     $countChars = $width / 10;
     
     $stringRes = '';
