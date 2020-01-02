@@ -17,6 +17,11 @@
                     <img width="" src="/Hello_world.png" />
                 </a>
             </li>   
+            <li>
+                <a href="/?filename=php.png">
+                    <img width="" src="/php.png" />
+                </a>
+            </li>   
         </ul>
         <div class="main">
         <?php if (!empty($_GET['filename'])): ?>    
