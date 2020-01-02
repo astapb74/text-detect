@@ -43,14 +43,14 @@ if (!is_file($train_file))
 $ocr_ann = fann_create_from_file($train_file);
 if ($ocr_ann) {
     
-    $result_lookup_array = array();
+    $result_lookup_array = [];
     $curr = 0.00;
     for($i = 33; $i <= 126; $i++) {
         array_push($result_lookup_array, array($curr, chr($i)));
         $curr+= 0.01;
     }
 
-    // Картнка которую распознать
+    // Картинка которую распознать
     $im = imagecreatefrompng("fann.png");
 
     $alphavit = ['F', 'A', 'N', 'N'];
