@@ -8,7 +8,7 @@ define('DB_PASS', NULL);
 
 $db = new \Common\Repository;
 
-if (!empty($_GET['code'])) {
+if (!empty($_GET['code']) || $_GET['code'] == 0) {
 	$code = (int)$_GET['code'];
 
 	$file = $db->getOne("SELECT * FROM alphavit WHERE code = :code;", [
