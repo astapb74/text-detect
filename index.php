@@ -9,7 +9,7 @@
     </style>
     </head>
     <body>
-        <h1 class='blue'><?= $title ?></h1>
+        <h1 class='blue'><?= $title ?> <img width="65" src="/fann.png" /></h1>
 <?php
 
 function OCR($img, $expected, $input, $lookup_array, $ann) {
