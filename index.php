@@ -32,14 +32,18 @@ function OCR($img, $expected, $input, $lookup_array, $ann) {
             echo "Expected: $expected <br>" . PHP_EOL;
             echo 'Result: ';
             if($expected == $lookup_array[$i][1]){
+                $res = $expected;
                 echo '<span class="green">Correct!</span>';
             }else{
+                $res = false;
                 echo '<span class="red">Incorrect!</span> <a href="train_ocr.php">Retrain OCR</a>';
             }
         }
     }
     echo '<br><br>' . PHP_EOL;
     echo '</div>' . PHP_EOL;
+
+    return $res;
 }
 
 
@@ -62,6 +66,7 @@ if ($ocr_ann) {
     $alphavit = ['F', 'A', 'N', 'N'];
     $codes = [37, 32, 45, 45];
     
+    $stringRes = '';
     foreach ($alphavit as $key => $value) {
         $testChar = [];
         for ($y = 0; $y<16; $y++) {
@@ -70,8 +75,11 @@ if ($ocr_ann) {
             }
         }
         
-        OCR($codes[$key], $value, $testChar, $result_lookup_array, $ocr_ann);
+        $res = OCR($codes[$key], $value, $testChar, $result_lookup_array, $ocr_ann);
+        if ($res)
+            $stringRes .= $res;
     }
+
 
     fann_destroy($ocr_ann);
 } else {
@@ -79,5 +87,6 @@ if ($ocr_ann) {
 }
 
 ?>
+    <h1 style="clear: both;"><?= $stringRes ?></h1>
     </body>
 </html>
