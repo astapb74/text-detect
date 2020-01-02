@@ -52,31 +52,26 @@ if ($ocr_ann) {
         $curr+= 0.01;
     }
 
-    $im = imagecreatefrompng("37.png");
+    $im = imagecreatefrompng("fann.png");
 
     $test_F = [];
     for ($y = 0; $y<16; $y++) {
         for ($x = 0; $x<10; $x++) {
-            $test_F[] = imagecolorat($im, $x, $y);
+            $test_F[] = imagecolorat($im, $x, $y) ? 1 : 0;
         }
     }
-    
-    
-    $im = imagecreatefrompng("32.png");
 
     $test_A = [];
     for ($y = 0; $y<16; $y++) {
-        for ($x = 0; $x<10; $x++) {
-            $test_A[] = imagecolorat($im, $x, $y);
+        for ($x = 10; $x<20; $x++) {
+            $test_A[] = imagecolorat($im, $x, $y) ? 1 : 0;
         }
     }
     
-    $im = imagecreatefrompng("45.png");
-
     $test_N = [];
     for ($y = 0; $y<16; $y++) {
-        for ($x = 0; $x<10; $x++) {
-            $test_N[] = imagecolorat($im, $x, $y);
+        for ($x = 20; $x<30; $x++) {
+            $test_N[] = imagecolorat($im, $x, $y) ? 1 : 0;
         }
     }
 
