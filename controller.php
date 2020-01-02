@@ -1,5 +1,10 @@
 <?php
 
+/**
+* Функция распознования текста
+*
+*@return chart
+*/
 function OCR($img, $expected, $input, $lookup_array, $ann) {
     echo '<div class="block_chart">' . PHP_EOL;
     echo "Image: <img src='images.php?code=$img'><br>" . PHP_EOL;
@@ -30,7 +35,7 @@ function OCR($img, $expected, $input, $lookup_array, $ann) {
     return $res;
 }
 
-
+// Файл обученной сети (знания)
 $train_file = (dirname(__FILE__) . '/ocr_float.net');
 if (!is_file($train_file))
     die('<span class="red">The file ocr_float.net has not been created!</span><a href="train_ocr.php">Train OCR</a>' . PHP_EOL);
@@ -45,6 +50,7 @@ if ($ocr_ann) {
         $curr+= 0.01;
     }
 
+    // Картнка которую распознать
     $im = imagecreatefrompng("fann.png");
 
     $alphavit = ['F', 'A', 'N', 'N'];
@@ -53,15 +59,17 @@ if ($ocr_ann) {
     $stringRes = '';
     foreach ($alphavit as $key => $value) {
         $testChar = [];
+        //Режим картинку на символы
         for ($y = 0; $y<16; $y++) {
             for ($x = $key*10; $x<$key*10+10; $x++) {
                 $testChar[] = imagecolorat($im, $x, $y) ? 1 : 0;
             }
         }
         
+        // Распознаем текс
         $res = OCR($codes[$key], $value, $testChar, $result_lookup_array, $ocr_ann);
         if ($res)
-            $stringRes .= $res;
+            $stringRes .= $res; // Распознаный текст
     }
 
 
