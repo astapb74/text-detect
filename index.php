@@ -53,7 +53,6 @@ if ($ocr_ann) {
     }
 
     $im = imagecreatefrompng("fann.png");
-    $width = getimagesize("fann.png")[0];
 
     $alphavit = ['F', 'A', 'N', 'N'];
     $codes = [37, 32, 45, 45];
