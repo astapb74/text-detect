@@ -2,6 +2,17 @@
     list-style: none;
  }
 
+ ul li {
+ 	display: inline-block;
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 2em;
+ }
+
+.main {
+	clear: both;
+}
+
 .blue{color:blue;}
 
 .green{color:green;}

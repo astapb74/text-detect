@@ -9,13 +9,20 @@
         <ul>
             <li>
                 <a href="/?filename=fann.png">
-                    <img width="65" src="/fann.png" />
+                    <img width="" src="/fann.png" />
                 </a>
             </li>
+            <li>
+                <a href="/?filename=Hello_world.png">
+                    <img width="" src="/Hello_world.png" />
+                </a>
+            </li>   
         </ul>
+        <div class="main">
         <?php if (!empty($_GET['filename'])): ?>    
             <?php require_once "controller.php" ?>
-        <?php endif; ?>    
+        <?php endif; ?> 
+        </div>   
         <h1 style="clear: both;"><?= $stringRes ?></h1>
     </body>
 </html>
