@@ -1,8 +1,8 @@
 <?php
 
-require_once "./db.php";
+require_once "../db.php";
 
-define('DB_STRING', 'sqlite:text.db');
+define('DB_STRING', 'sqlite:../text.db');
 define('DB_USER', NULL);
 define('DB_PASS', NULL);
 

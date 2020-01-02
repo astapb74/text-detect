@@ -15,7 +15,7 @@ $db = new \Common\Repository;
 */
 function OCR($img, $expected, $input, $lookup_array, $ann) {
     echo '<div class="block_chart">' . PHP_EOL;
-    echo "Image: <img src='images.php?code=$img'><br>" . PHP_EOL;
+    echo "Image: <img src='/img/?code=$img'><br>" . PHP_EOL;
 
     $calc_out = fann_run($ann, $input);
     
@@ -59,8 +59,8 @@ if ($ocr_ann) {
     }
 
     // Картинка которую распознать
-    $im = imagecreatefrompng($_GET['filename']);
-    $width = getimagesize($_GET['filename'])[0];
+    $im = imagecreatefrompng('img' . DIRECTORY_SEPARATOR . $_GET['filename']);
+    $width = getimagesize('img' . DIRECTORY_SEPARATOR . $_GET['filename'])[0];
     $countChars = $width / 10;
     
     $stringRes = '';
@@ -75,7 +75,7 @@ if ($ocr_ann) {
                 
     }
 
-    $alphavit = $db->getMany("SELECT * FROM alphavit WHERE code != 0;");
+    $alphavit = $db->getMany("SELECT * FROM alphavit;");
 
 // Распознаем текс
     foreach ($testChar as $index => $char) {

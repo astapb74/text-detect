@@ -9,17 +9,17 @@
         <ul>
             <li>
                 <a href="/?filename=fann.png">
-                    <img width="" src="/fann.png" />
+                    <img width="" src="/img/fann.png" />
                 </a>
             </li>
             <li>
                 <a href="/?filename=Hello_world.png">
-                    <img width="" src="/Hello_world.png" />
+                    <img width="" src="/img/Hello_world.png" />
                 </a>
             </li>   
             <li>
                 <a href="/?filename=php.png">
-                    <img width="" src="/php.png" />
+                    <img width="" src="/img/php.png" />
                 </a>
             </li>   
         </ul>
