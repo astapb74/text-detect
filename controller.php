@@ -17,6 +17,7 @@ function OCR($img, $expected, $input, $lookup_array, $ann) {
     echo '<div class="block_chart">' . PHP_EOL;
     echo "Image: <img src='/img?code=$img'><br>" . PHP_EOL;
 
+    // Выбираем значение из нейронной сети если пиксели кодировки сошлись
     $calc_out = fann_run($ann, $input);
     
     echo 'Raw: ' .  $calc_out[0] . '<br>' . PHP_EOL;
@@ -24,6 +25,7 @@ function OCR($img, $expected, $input, $lookup_array, $ann) {
     echo 'Decoded Symbol: ';
     
     for($i = 0; $i < count($lookup_array); $i++) {
+        // Если символы сошлись не только по битам, но и по коду символа
        if( floor($lookup_array[$i][0]*100)/100 == floor($calc_out[0]*100)/100) {
             echo $lookup_array[$i][1] . '<br>' . PHP_EOL;
             echo "Expected: $expected <br>" . PHP_EOL;
@@ -51,6 +53,7 @@ if (!is_file($train_file))
 $ocr_ann = fann_create_from_file($train_file);
 if ($ocr_ann) {
     
+    // Кодируем ansi по коду для поиска
     $result_lookup_array = [];
     $curr = 0.00;
     for($i = 33; $i <= 126; $i++) {
