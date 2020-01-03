@@ -15,7 +15,7 @@ $db = new \Common\Repository;
 */
 function OCR($img, $expected, $input, $lookup_array, $ann) {
     echo '<div class="block_chart">' . PHP_EOL;
-    echo "Image: <img src='/img/?code=$img'><br>" . PHP_EOL;
+    echo "Image: <img src='/img?code=$img'><br>" . PHP_EOL;
 
     $calc_out = fann_run($ann, $input);
     
