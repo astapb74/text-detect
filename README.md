@@ -1,5 +1,6 @@
 # text-detect
-
+![GitHub Logo](/img/fann.png)
+Format: ![Alt Text](url)
 
 ## Тест распознование текста,  
 ###### для реализации нужен php 7;  
