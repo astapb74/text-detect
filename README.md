@@ -1,7 +1,7 @@
-# text-detect ![GitHub Logo](/img/fann.png)
+# text-detect: ![GitHub Logo](/img/fann.png)
 
 
-## Тест распознование текста,  
+## Тест распознование текста:  
 ###### для реализации нужен php 7;  
 ###### библиотека fann и gd;  
 ###### драйвер для работы sqllite3.  
