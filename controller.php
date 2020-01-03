@@ -78,10 +78,10 @@ if ($ocr_ann) {
                 
     }
 
-    $alphavit = $db->getMany("SELECT * FROM alphavit;");
+    $alphavit = $db->getMany("SELECT code, title FROM alphavit;");
 
 // Распознаем текс
-    foreach ($testChar as $index => $char) {
+    foreach ($testChar as $char) {
         foreach ($alphavit as $key => $value) {
             $res = OCR($value['code'], $value['title'], $char, $result_lookup_array, $ocr_ann);
             if ($res)
