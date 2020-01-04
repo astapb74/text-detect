@@ -21,7 +21,12 @@
                 <a href="/?filename=php.png">
                     <img <?= (!empty($_GET['filename']) && $_GET['filename'] == 'php.png' ? 'class="active"' : '') ?> src="/img/php.png" />
                 </a>
-            </li>   
+            </li>
+             <li>
+                <a href="/?filename=web.png">
+                    <img <?= (!empty($_GET['filename']) && $_GET['filename'] == 'web.png' ? 'class="active"' : '') ?> src="/img/web.png" />
+                </a>
+            </li>      
         </ul>
         <div class="main">
         <?php if (!empty($_GET['filename'])): ?>    

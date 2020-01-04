@@ -48,7 +48,7 @@ function OCR($img, $expected, $input, $lookup_array, $ann) {
 // Файл обученной сети (знания)
 $train_file = (dirname(__FILE__) . '/ocr_float.net');
 if (!is_file($train_file))
-    die('<span class="red">The file ocr_float.net has not been created!</span><a href="train_ocr.php">Train OCR</a>' . PHP_EOL);
+    die('<span class="red">The file ocr_float.net has not been created!</span><a href="/train_ocr">Train OCR</a>' . PHP_EOL);
 
 $ocr_ann = fann_create_from_file($train_file);
 if ($ocr_ann) {
@@ -65,7 +65,7 @@ if ($ocr_ann) {
     $im = imagecreatefrompng('img' . DIRECTORY_SEPARATOR . $_GET['filename']);
     $width = getimagesize('img' . DIRECTORY_SEPARATOR . $_GET['filename'])[0];
     $countChars = $width / 10;
-    
+
     $stringRes = '';
     $testChar = [];
     //Режим картинку на символы
