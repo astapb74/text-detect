@@ -9,14 +9,14 @@
 </head>	
 <body>
 <?php
-set_time_limit ( 300 ); // do not run longer than 5 minutes (adjust as needed)
+set_time_limit ( 9999 ); // do not run longer than 5 minutes (adjust as needed)
 
 $num_input = 160; // Размер входного вектора
 $num_output = 1; // Выход, результат один
 $num_layers = 3; // 3-ох слойная нейросеть
-$num_neurons_hidden = 107;
+$num_neurons_hidden = 108;
 $desired_error = 0.00001;
-$max_epochs = 5000000; // Максимальное эпоха обучения нейросети
+$max_epochs = 5000100; // Максимальное эпоха обучения нейросети
 $epochs_between_reports = 10; // 10 эпох для обучения (временная шкала)
 
 //Создает стандартную полностью подключенную нейронную сеть обратного распространения

@@ -56,7 +56,7 @@ if ($ocr_ann) {
     // Кодируем ansi по коду для поиска
     $result_lookup_array = [];
     $curr = 0.00;
-    for($i = 33; $i <= 126; $i++) {
+    for($i = 32; $i <= 126; $i++) {
         array_push($result_lookup_array, array($curr, chr($i)));
         $curr+= 0.01;
     }
@@ -84,7 +84,7 @@ if ($ocr_ann) {
     foreach ($testChar as $char) {
         foreach ($alphavit as $key => $value) {
             $res = OCR($value['code'], $value['title'], $char, $result_lookup_array, $ocr_ann);
-            if ($res)
+            if ($res || $res == ' ')
                 $stringRes .= $res; // Распознаный текст
         }
         
